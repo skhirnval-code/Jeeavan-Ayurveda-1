@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Jeevan Ayurveda | Ayurvedic Wellness
+  </title>
+
+  <meta
+    name="description"
+    content="Jeevan Ayurveda - Ayurvedic wellness products and support for a healthier lifestyle."
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f8fbf6;
+      color: #243126;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+
+      background: rgba(255,255,255,0.97);
+
+      box-shadow:
+        0 2px 15px rgba(0,0,0,0.08);
+    }
+
+    .navbar {
+
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding: 15px 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+    .logo {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .logo-icon {
+
+      width: 46px;
+      height: 46px;
+
+      border-radius: 50%;
+
+      background: #28753d;
+
+      color: white;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      font-size: 24px;
+    }
+
+    .logo h2 {
+
+      color: #216636;
+
+      font-size: 22px;
+    }
+
+    .logo span {
+
+      display: block;
+
+      color: #777;
+
+      font-size: 10px;
+
+      letter-spacing: 1px;
+    }
+
+    nav {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+    }
+
+    nav a {
+
+      color: #39453c;
+
+      font-size: 15px;
+
+      font-weight: 600;
+    }
+
+    nav a:hover {
+
+      color: #28753d;
+    }
+
+    .nav-button {
+
+      background: #28753d;
+
+      color: white !important;
+
+      padding: 10px 18px;
+
+      border-radius: 25px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+
+      min-height: 650px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #eef8ea,
+          #f8fbf6
+        );
+
+      display: flex;
+
+      align-items: center;
+    }
+
+    .hero-container {
+
+      max-width: 1200px;
+
+      width: 100%;
+
+      margin: auto;
+
+      padding: 70px 20px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.1fr
+        0.9fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .tag {
+
+      display: inline-block;
+
+      background: #dcefd7;
+
+      color: #286b38;
+
+      padding: 8px 15px;
+
+      border-radius: 30px;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+
+      font-size: 52px;
+
+      line-height: 1.15;
+
+      color: #173e24;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+
+      color: #28753d;
+    }
+
+    .hero p {
+
+      max-width: 620px;
+
+      font-size: 18px;
+
+      color: #59665b;
+
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+
+      display: flex;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+
+      display: inline-block;
+
+      padding: 14px 25px;
+
+      border-radius: 30px;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .primary {
+
+      background: #28753d;
+
+      color: white;
+    }
+
+    .primary:hover {
+
+      background: #1c572d;
+
+      transform: translateY(-2px);
+    }
+
+    .secondary {
+
+      background: white;
+
+      color: #28753d;
+
+      border: 1px solid #28753d;
+    }
+
+    .secondary:hover {
+
+      background: #eaf5e7;
+    }
+
+
+    /* HERO PRODUCT CARD */
+
+    .hero-card {
+
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 25px;
+
+      text-align: center;
+
+      box-shadow:
+        0 15px 50px rgba(34,85,42,0.15);
+    }
+
+    .product-placeholder {
+
+      height: 320px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #edf7e9,
+          #d4ebcf
+        );
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      font-size: 100px;
+
+      margin-bottom: 20px;
+    }
+
+    .hero-card h3 {
+
+      color: #216636;
+
+      font-size: 26px;
+    }
+
+    .hero-card p {
+
+      margin: 5px 0 0;
+
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       COMMON SECTION
+    ========================= */
+
+    section {
+
+      padding: 80px 20px;
+    }
+
+    .container {
+
+      max-width: 1200px;
+
+      margin: auto;
+    }
+
+    .section-title {
+
+      text-align: center;
+
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+
+      color: #28753d;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+
+      color: #173e24;
+
+      font-size: 36px;
+
+      margin: 8px 0;
+    }
+
+    .section-title p {
+
+      max-width: 700px;
+
+      margin: auto;
+
+      color: #667168;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 40px;
+    }
+
+    .about-card {
+
+      background: white;
+
+      padding: 35px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    .about-card h3 {
+
+      color: #216636;
+
+      font-size: 27px;
+
+      margin-bottom: 15px;
+    }
+
+    .about-card p {
+
+      color: #59645b;
+    }
+
+    .about-list {
+
+      list-style: none;
+
+      margin-top: 20px;
+    }
+
+    .about-list li {
+
+      margin: 12px 0;
+    }
+
+    .about-list li::before {
+
+      content: "✓";
+
+      color: #28753d;
+
+      font-weight: bold;
+
+      margin-right: 10px;
+    }
+
+
+    /* =========================
+       PRODUCT
+    ========================= */
+
+    .product-section {
+
+      background: #edf6ea;
+    }
+
+    .product-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        0.9fr
+        1.1fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .product-image {
+
+      min-height: 420px;
+
+      background: white;
+
+      border-radius: 25px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      font-size: 120px;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.07);
+    }
+
+    .product-info h2 {
+
+      font-size: 38px;
+
+      color: #173e24;
+
+      margin-bottom: 15px;
+    }
+
+    .product-info p {
+
+      color: #5d675f;
+
+      margin-bottom: 20px;
+    }
+
+    .benefits {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 15px;
+
+      margin: 25px 0;
+    }
+
+    .benefit {
+
+      background: white;
+
+      padding: 18px;
+
+      border-radius: 12px;
+
+      font-weight: bold;
+    }
+
+    .benefit span {
+
+      color: #28753d;
+
+      margin-right: 7px;
+    }
+
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 25px;
+    }
+
+    .process-card {
+
+      background: white;
+
+      padding: 30px;
+
+      text-align: center;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .number {
+
+      width: 55px;
+      height: 55px;
+
+      margin:
+        0 auto 15px;
+
+      border-radius: 50%;
+
+      background: #dcefd7;
+
+      color: #28753d;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 22px;
+
+      font-weight: bold;
+    }
+
+    .process-card h3 {
+
+      color: #216636;
+
+      margin-bottom: 10px;
+    }
+
+
+    /* =========================
+       WHY
+    ========================= */
+
+    .why {
+
+      background: #173e24;
+
+      color: white;
+    }
+
+    .why .section-title h2 {
+
+      color: white;
+    }
+
+    .why .section-title p {
+
+      color: #d7e4d9;
+    }
+
+    .why-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 20px;
+    }
+
+    .why-card {
+
+      padding: 30px 20px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+      border-radius: 18px;
+    }
+
+    .why-icon {
+
+      font-size: 40px;
+
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+
+      color: #d7e4d9;
+
+      font-size: 14px;
+
+      margin-top: 8px;
+    }
+
+
+    /* =========================
+       REVIEWS
+    ========================= */
+
+    .reviews {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 25px;
+    }
+
+    .review {
+
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 7px 25px rgba(0,0,0,0.06);
+    }
+
+    .stars {
+
+      color: #d39a16;
+
+      margin-bottom: 12px;
+    }
+
+    .review p {
+
+      color: #5e675f;
+
+      font-style: italic;
+
+      margin-bottom: 15px;
+    }
+
+    .review strong {
+
+      color: #216636;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-section {
+
+      background: #edf6ea;
+    }
+
+    .contact-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        0.8fr
+        1.2fr;
+
+      gap: 45px;
+    }
+
+    .contact-info {
+
+      background: #173e24;
+
+      color: white;
+
+      border-radius: 25px;
+
+      padding: 40px;
+    }
+
+    .contact-info h2 {
+
+      font-size: 32px;
+
+      margin-bottom: 15px;
+    }
+
+    .contact-info > p {
+
+      color: #d7e4d9;
+    }
+
+    .contact-item {
+
+      display: flex;
+
+      gap: 15px;
+
+      margin-top: 25px;
+    }
+
+    .contact-icon {
+
+      font-size: 25px;
+    }
+
+    .contact-item p {
+
+      color: #d7e4d9;
+    }
+
+
+    /* FORM */
+
+    .form-box {
+
+      background: white;
+
+      padding: 40px;
+
+      border-radius: 25px;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.07);
+    }
+
+    .form-box h2 {
+
+      color: #173e24;
+
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+
+      width: 100%;
+
+      padding: 13px 15px;
+
+      border:
+        1px solid
+        #d7ded8;
+
+      border-radius: 10px;
+
+      outline: none;
+
+      font-size: 15px;
+    }
+
+    .form-group textarea {
+
+      min-height: 110px;
+
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+
+      border-color: #28753d;
+    }
+
+    .submit-button {
+
+      width: 100%;
+
+      background: #28753d;
+
+      color: white;
+
+      padding: 15px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+
+      background: #1c572d;
+    }
+
+    .submit-button:disabled {
+
+      opacity: 0.6;
+
+      cursor: not-allowed;
+    }
+
+    .success {
+
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 13px;
+
+      background: #dff1dc;
+
+      color: #226333;
+
+      border-radius: 10px;
+
+      text-align: center;
+
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      background: #102b19;
+
+      color: white;
+
+      padding: 50px 20px 20px;
+    }
+
+    .footer-grid {
+
+      max-width: 1200px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        1.3fr
+        1fr
+        1fr;
+
+      gap: 40px;
+    }
+
+    footer h3 {
+
+      margin-bottom: 15px;
+    }
+
+    footer p,
+    footer a {
+
+      color: #c6d3c8;
+
+      font-size: 14px;
+    }
+
+    footer a {
+
+      display: block;
+
+      margin: 8px 0;
+    }
+
+    .copyright {
+
+      max-width: 1200px;
+
+      margin: 40px auto 0;
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
+      text-align: center;
+
+      color: #aebbb0;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp {
+
+      position: fixed;
+
+      right: 20px;
+
+      bottom: 20px;
+
+      width: 58px;
+
+      height: 58px;
+
+      border-radius: 50%;
+
+      background: #25D366;
+
+      color: white;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      font-size: 27px;
+
+      box-shadow:
+        0 5px 20px rgba(0,0,0,0.2);
+
+      z-index: 999;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:900px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero-container,
+      .about-grid,
+      .product-grid,
+      .contact-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+
+        min-height: auto;
+      }
+
+      .hero h1 {
+
+        font-size: 40px;
+      }
+
+      .process-grid,
+      .reviews {
+
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+    }
+
+
+    @media(max-width:550px) {
+
+      section {
+
+        padding: 60px 15px;
+      }
+
+      .hero-container {
+
+        padding:
+          50px 15px;
+      }
+
+      .hero h1 {
+
+        font-size: 32px;
+      }
+
+      .hero p {
+
+        font-size: 16px;
+      }
+
+      .section-title h2 {
+
+        font-size: 29px;
+      }
+
+      .benefits,
+      .why-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+      .form-box,
+      .contact-info {
+
+        padding: 25px;
+      }
+
+      .product-image {
+
+        min-height: 300px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="navbar">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+        🌿
+      </div>
+
+      <div>
+
+        <h2>
+          Jeevan Ayurveda
+        </h2>
+
+        <span>
+          AYURVEDIC WELLNESS
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <nav>
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#product">
+        Product
+      </a>
+
+      <a href="#process">
+        How It Works
+      </a>
+
+      <a
+        href="#contact"
+        class="nav-button"
+      >
+        Contact Us
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section
+  class="hero"
+  id="home"
+>
+
+  <div class="hero-container">
+
+
+    <div>
+
+      <div class="tag">
+
+        🌿 Ayurvedic Wellness Solution
+
+      </div>
+
+
+      <h1>
+
+        बेहतर जीवन की ओर
+
+        <br>
+
+        <span>
+          एक प्राकृतिक कदम
+        </span>
+
+      </h1>
+
+
+      <p>
+
+        Jeevan Ayurveda के साथ स्वस्थ और
+        नशामुक्त जीवन की दिशा में अपना पहला
+        कदम उठाएं। सही जानकारी, guidance और
+        Ayurvedic wellness support के साथ
+        positive lifestyle की ओर बढ़ें।
+
+      </p>
+
+
+      <div class="buttons">
+
+        <a
+          href="#contact"
+          class="btn primary"
+        >
+          अभी जानकारी लें
+        </a>
+
+
+        <a
+          href="https://wa.me/919571885238"
+          target="_blank"
+          class="btn secondary"
+        >
+          WhatsApp करें
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="hero-card">
+
+      <div class="product-placeholder">
+
+        🌿
+
+      </div>
+
+      <h3>
+        Jeevan Ayurveda
+      </h3>
+
+      <p>
+        Ayurvedic Wellness Product
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <small>
+        ABOUT US
+      </small>
+
+      <h2>
+        Jeevan Ayurveda के बारे में
+      </h2>
+
+      <p>
+
+        हमारा उद्देश्य लोगों को बेहतर
+        lifestyle और स्वस्थ आदतों की
+        दिशा में जागरूक एवं सहयोग करना है।
+
+      </p>
+
+    </div>
+
+
+
+    <div class="about-grid">
+
+
+      <div class="about-card">
+
+        <h3>
+          प्राकृतिक जीवनशैली की ओर
+        </h3>
+
+        <p>
+
+          Jeevan Ayurveda Ayurvedic wellness
+          products और guidance के माध्यम से
+          लोगों को healthier lifestyle की
+          दिशा में बढ़ने में सहयोग करने के
+          उद्देश्य से बनाया गया है।
+
+        </p>
+
+
+        <ul class="about-list">
+
+          <li>
+            Ayurvedic wellness approach
+          </li>
+
+          <li>
+            Personal guidance
+          </li>
+
+          <li>
+            Better lifestyle awareness
+          </li>
+
+          <li>
+            Customer support
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="about-card">
+
+        <h3>
+          हमारा उद्देश्य
+        </h3>
+
+        <p>
+
+          नशे से बाहर निकलने का निर्णय
+          एक महत्वपूर्ण व्यक्तिगत कदम है।
+          Jeevan Ayurveda का उद्देश्य इस
+          journey में सही जानकारी और
+          wellness support उपलब्ध कराना है।
+
+        </p>
+
+        <br>
+
+        <p>
+
+          यदि आप या आपका कोई करीबी व्यक्ति
+          नशे की आदत छोड़ने की कोशिश कर रहा है,
+          तो qualified healthcare professional
+          की सलाह लेना भी महत्वपूर्ण है।
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCT
+========================= -->
+
+<section
+  class="product-section"
+  id="product"
+>
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <small>
+        OUR PRODUCT
+      </small>
+
+      <h2>
+        Jeevan Ayurveda Product
+      </h2>
+
+      <p>
+
+        हमारे Ayurvedic wellness product
+        के बारे में जानकारी प्राप्त करें।
+
+      </p>
+
+    </div>
+
+
+
+    <div class="product-grid">
+
+
+      <div class="product-image">
+
+        🌿
+
+      </div>
+
+
+
+      <div class="product-info">
+
+        <h2>
+          Natural Ayurvedic Support
+        </h2>
+
+        <p>
+
+          यह section आपके actual product
+          की जानकारी के लिए बनाया गया है।
+          यहां product name, ingredients,
+          usage और price की जानकारी बाद में
+          जोड़ी जाएगी।
+
+        </p>
+
+
+        <div class="benefits">
+
+
+          <div class="benefit">
+
+            <span>✓</span>
+
+            Ayurvedic formulation
+
+          </div>
+
+
+          <div class="benefit">
+
+            <span>✓</span>
+
+            Easy to use
+
+          </div>
+
+
+          <div class="benefit">
+
+            <span>✓</span>
+
+            Wellness support
+
+          </div>
+
+
+          <div class="benefit">
+
+            <span>✓</span>
+
+            Customer guidance
+
+          </div>
+
+
+        </div>
+
+
+        <a
+          href="#contact"
+          class="btn primary"
+        >
+          Product की जानकारी लें
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section id="process">
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <small>
+        OUR PROCESS
+      </small>
+
+      <h2>
+        हमसे कैसे जुड़ें?
+      </h2>
+
+      <p>
+
+        सही जानकारी प्राप्त करें और
+        अपनी wellness journey की शुरुआत करें।
+
+      </p>
+
+    </div>
+
+
+
+    <div class="process-grid">
+
+
+      <div class="process-card">
+
+        <div class="number">
+          1
+        </div>
+
+        <h3>
+          जानकारी दें
+        </h3>
+
+        <p>
+
+          अपना नाम और contact details
+          के साथ अपनी जरूरत हमें बताएं।
+
+        </p>
+
+      </div>
+
+
+
+      <div class="process-card">
+
+        <div class="number">
+          2
+        </div>
+
+        <h3>
+          Guidance लें
+        </h3>
+
+        <p>
+
+          हमारी team आपसे संपर्क करके
+          product और available guidance
+          के बारे में जानकारी देगी।
+
+        </p>
+
+      </div>
+
+
+
+      <div class="process-card">
+
+        <div class="number">
+          3
+        </div>
+
+        <h3>
+          Journey शुरू करें
+        </h3>
+
+        <p>
+
+          उचित जानकारी प्राप्त करने के बाद
+          अपने lifestyle में positive बदलाव
+          की दिशा में आगे बढ़ें।
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="why">
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <small>
+        WHY JEEVAN AYURVEDA
+      </small>
+
+      <h2>
+        हमें क्यों चुनें?
+      </h2>
+
+      <p>
+
+        हमारा focus product के साथ-साथ
+        सही जानकारी और customer support
+        पर है।
+
+      </p>
+
+    </div>
+
+
+
+    <div class="why-grid">
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          🌿
+        </div>
+
+        <h3>
+          Ayurvedic Approach
+        </h3>
+
+        <p>
+          Traditional Ayurvedic wellness
+          approach पर focus।
+        </p>
+
+      </div>
+
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          🤝
+        </div>
+
+        <h3>
+          Customer Support
+        </h3>
+
+        <p>
+          Product से जुड़ी जानकारी और
+          assistance।
+        </p>
+
+      </div>
+
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          📞
+        </div>
+
+        <h3>
+          Guidance
+        </h3>
+
+        <p>
+          आपकी जरूरत के अनुसार जानकारी
+          उपलब्ध कराने का प्रयास।
+        </p>
+
+      </div>
+
+
+
+      <div class="why-card">
+
+        <div class="why-icon">
+          ❤️
+        </div>
+
+        <h3>
+          Better Lifestyle
+        </h3>
+
+        <p>
+          Healthy और positive lifestyle
+          की दिशा में सहयोग।
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section>
+
+  <div class="container">
+
+
+    <div class="section-title">
+
+      <small>
+        CUSTOMER EXPERIENCE
+      </small>
+
+      <h2>
+        हमारे ग्राहकों की राय
+      </h2>
+
+      <p>
+
+        नीचे दिए गए testimonials demo हैं।
+        इन्हें आपकी वास्तविक customer
+        testimonials से replace किया जाएगा।
+
+      </p>
+
+    </div>
+
+
+
+    <div class="reviews">
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+
+          "Product और lifestyle के बारे में
+          अच्छी जानकारी मिली।"
+
+        </p>
+
+        <strong>
+          — Customer
+        </strong>
+
+      </div>
+
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+
+          "Team ने हमारे questions का
+          अच्छे से जवाब दिया।"
+
+        </p>
+
+        <strong>
+          — Customer
+        </strong>
+
+      </div>
+
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+
+          "Product के बारे में जानकारी लेने
+          का experience अच्छा रहा।"
+
+        </p>
+
+        <strong>
+          — Customer
+        </strong>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+  class="contact-section"
+  id="contact"
+>
+
+  <div class="container">
+
+
+    <div class="contact-grid">
+
+
+      <div class="contact-info">
+
+        <h2>
+          हमसे संपर्क करें
+        </h2>
+
+        <p>
+
+          Product की जानकारी,
+          consultation या किसी भी सवाल
+          के लिए हमें अपना message भेजें।
+
+        </p>
+
+
+        <div class="contact-item">
+
+          <div class="contact-icon">
+            📞
+          </div>
+
+          <div>
+
+            <strong>
+              Phone
+            </strong>
+
+            <p>
+              +91 95718 85238
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <div class="contact-icon">
+            💬
+          </div>
+
+          <div>
+
+            <strong>
+              WhatsApp
+            </strong>
+
+            <p>
+              WhatsApp पर संपर्क करें
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <div class="contact-icon">
+            📍
+          </div>
+
+          <div>
+
+            <strong>
+              Address
+            </strong>
+
+            <p>
+              Your Company Address, India
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FORM -->
+
+      <div class="form-box">
+
+        <h2>
+          जानकारी के लिए Form भरें
+        </h2>
+
+
+        <form id="contactForm">
+
+
+          <div class="form-group">
+
+            <label>
+              आपका नाम *
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="अपना नाम लिखें"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              मोबाइल नंबर *
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="10 digit mobile number"
+              maxlength="10"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              आप किस विषय में जानकारी चाहते हैं?
+            </label>
+
+            <select id="requirement">
+
+              <option value="">
+                Select करें
+              </option>
+
+              <option value="Product Information">
+                Product Information
+              </option>
+
+              <option value="Consultation">
+                Consultation
+              </option>
+
+              <option value="Order">
+                Product Order
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              शहर
+            </label>
+
+            <input
+              type="text"
+              id="city"
+              placeholder="अपना शहर"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              आपका संदेश
+            </label>
+
+            <textarea
+              id="message"
+              placeholder="आप क्या जानना चाहते हैं?"
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="submitButton"
+          >
+
+            जानकारी भेजें
+
+          </button>
+
+
+          <div
+            class="success"
+            id="successMessage"
+          >
+
+            धन्यवाद! आपकी जानकारी
+            सफलतापूर्वक भेज दी गई है।
+            हमारी team जल्द आपसे संपर्क करेगी।
+
+          </div>
+
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-grid">
+
+
+    <div>
+
+      <h3>
+        🌿 Jeevan Ayurveda
+      </h3>
+
+      <p>
+
+        Ayurvedic wellness और बेहतर
+        lifestyle की दिशा में information
+        एवं support प्रदान करने का प्रयास।
+
+      </p>
+
+    </div>
+
+
+
+    <div>
+
+      <h3>
+        Quick Links
+      </h3>
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#about">
+        About Us
+      </a>
+
+      <a href="#product">
+        Product
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
+
+
+    <div>
+
+      <h3>
+        Important
+      </h3>
+
+      <a href="#">
+        Privacy Policy
+      </a>
+
+      <a href="#">
+        Terms & Conditions
+      </a>
+
+      <a href="#">
+        Disclaimer
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="copyright">
+
+    © 2026 Jeevan Ayurveda.
+    All Rights Reserved.
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/919571885238"
+  target="_blank"
+  title="WhatsApp"
+>
+
+  💬
+
+</a>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+  /*
+   * TRUE FIELD-BY-FIELD AUTOSAVE
+   * ----------------------------
+   * Name लिखते ही (हर input/change पर) backend को भेजा जाता है.
+   * Mobile/Requirement/City/Message भी इसी तरह तुरंत save/update होते हैं.
+   * किसी field के लिए submit button या दूसरा field भरना जरूरी नहीं है.
+   */
+
+  const form = document.getElementById("contactForm");
+  const submitButton = document.getElementById("submitButton");
+  const successMessage = document.getElementById("successMessage");
+
+  const fields = {
+    name: document.getElementById("name"),
+    phone: document.getElementById("phone"),
+    requirement: document.getElementById("requirement"),
+    city: document.getElementById("city"),
+    message: document.getElementById("message")
+  };
+
+  let isSaving = false;
+  let saveAgain = false;
+
+  function getLeadId() {
+    let leadId = localStorage.getItem("jeevanAyurvedaLeadId");
+
+    if (!leadId) {
+      leadId =
+        "JA-" +
+        Date.now().toString(36).toUpperCase() +
+        "-" +
+        Math.random().toString(36).substring(2, 8).toUpperCase();
+
+      localStorage.setItem("jeevanAyurvedaLeadId", leadId);
+    }
+
+    return leadId;
+  }
+
+  function getFormData() {
+    return {
+      leadId: getLeadId(),
+      name: fields.name.value.trim(),
+      phone: fields.phone.value.trim(),
+      requirement: fields.requirement.value,
+      city: fields.city.value.trim(),
+      message: fields.message.value.trim(),
+      pageUrl: window.location.href
+    };
+  }
+
+  function saveImmediately() {
+    const data = getFormData();
+
+    /*
+     * IMPORTANT:
+     * सिर्फ Name भरने पर भी save होगा.
+     * Mobile number required नहीं है autosave के लिए.
+     */
+    const hasData =
+      data.name ||
+      data.phone ||
+      data.requirement ||
+      data.city ||
+      data.message;
+
+    if (!hasData) return;
+
+    if (isSaving) {
+      saveAgain = true;
+      return;
+    }
+
+    isSaving = true;
+
+    google.script.run
+      .withSuccessHandler(function(response) {
+        isSaving = false;
+
+        if (response && response.status === "success") {
+          // Autosave में form clear नहीं होगा.
+          successMessage.innerText = "जानकारी सुरक्षित हो गई ✓";
+          successMessage.style.display = "block";
+
+          setTimeout(function() {
+            successMessage.style.display = "none";
+          }, 1200);
+        }
+
+        if (saveAgain) {
+          saveAgain = false;
+          setTimeout(saveImmediately, 50);
+        }
+      })
+      .withFailureHandler(function(error) {
+        isSaving = false;
+        console.error("Google Sheet autosave error:", error);
+
+        if (saveAgain) {
+          saveAgain = false;
+          setTimeout(saveImmediately, 100);
+        }
+      })
+      .submitForm(data);
+  }
+
+  /*
+   * NAME:
+   * जैसे ही customer पहला अक्षर भी type करता है,
+   * 150ms के अंदर backend save request जाती है.
+   */
+  fields.name.addEventListener("input", function() {
+    saveImmediately();
+  });
+
+  fields.phone.addEventListener("input", function() {
+    saveImmediately();
+  });
+
+  fields.city.addEventListener("input", function() {
+    saveImmediately();
+  });
+
+  fields.message.addEventListener("input", function() {
+    saveImmediately();
+  });
+
+  fields.requirement.addEventListener("change", function() {
+    saveImmediately();
+  });
+
+  /*
+   * Button optional है.
+   * Customer चाहे तो manually भी save कर सकता है.
+   */
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    saveImmediately();
+
+    successMessage.innerText =
+      "आपकी जानकारी Google Sheet में सुरक्षित हो गई है।";
+    successMessage.style.display = "block";
+  });
+
+  /*
+   * Customer page बंद/refresh करे तो आखिरी data save करने की कोशिश.
+   */
+  window.addEventListener("pagehide", function() {
+    saveImmediately();
+  });
+</script>
+
+
+</body>
+
+</html>
