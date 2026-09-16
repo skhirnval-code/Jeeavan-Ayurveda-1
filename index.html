@@ -1265,6 +1265,36 @@ background: #f2790f !important;
 .cod-trigger-btn:hover {
 background: #d9680a !important;
 }
+
+.cod-sticky-btn {
+position: fixed;
+bottom: 20px;
+left: 20px;
+z-index: 1500;
+background: #f2790f;
+color: white;
+padding: 14px 22px;
+border-radius: 50px;
+font-weight: bold;
+font-size: 14px;
+box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+border: none;
+cursor: pointer;
+}
+
+.cod-sticky-btn:hover {
+background: #d9680a;
+}
+
+@media (max-width: 600px) {
+.cod-sticky-btn {
+left: 15px;
+right: 15px;
+bottom: 15px;
+width: calc(100% - 30px);
+text-align: center;
+}
+}
 </style>
 
 </head>
@@ -1323,6 +1353,8 @@ class="nav-button"
 >
 Contact Us
 </a>
+
+<a href="javascript:void(0)" class="nav-button cod-trigger-btn" onclick="openCodModal()">🔥 ऑर्डर करें</a>
 
 </nav>
 
@@ -1387,6 +1419,8 @@ class="btn secondary"
 >
 WhatsApp करें
 </a>
+
+<a href="javascript:void(0)" class="btn primary cod-trigger-btn" onclick="openCodModal()">🔥 COD ऑर्डर करें – ₹1470</a>
 
 </div>
 
@@ -1711,6 +1745,10 @@ Journey शुरू करें
 
 </div>
 
+</div>
+
+<div style="text-align:center; margin-top:10px;">
+<button type="button" class="btn primary cod-trigger-btn" onclick="openCodModal()">🔥 COD ऑर्डर करें – ₹1470</button>
 </div>
 
 </div>
@@ -2092,6 +2130,10 @@ practical लगीं।"
 
 </div>
 
+<div style="text-align:center; margin-top:10px;">
+<button type="button" class="btn primary cod-trigger-btn" onclick="openCodModal()">🔥 COD ऑर्डर करें – ₹1470</button>
+</div>
+
 </div>
 
 </section>
@@ -2122,6 +2164,9 @@ consultation या किसी भी सवाल
 के लिए हमें अपना message भेजें।
 
 </p>
+
+<button type="button" class="btn primary cod-trigger-btn" style="margin-bottom:20px;" onclick="openCodModal()">🔥 COD ऑर्डर करें – ₹1470</button>
+
 
 <div class="contact-item">
 
@@ -2394,6 +2439,8 @@ lifestyle की दिशा में information
 एवं support प्रदान करने का प्रयास।
 
 </p>
+
+<a href="javascript:void(0)" onclick="openCodModal()" style="color:#f2952e; font-weight:bold;">🔥 COD ऑर्डर करें – ₹1470</a>
 
 </div>
 
@@ -2689,6 +2736,13 @@ window.open("https://wa.me/919571885238?text=" + encodeURIComponent(message), "_
 
 closeCodModal();
 }
+
+
+window.addEventListener("load", function() {
+setTimeout(function() {
+openCodModal();
+}, 1200);
+});
 </script>
 
 <!-- =========================
@@ -2813,6 +2867,8 @@ COD ORDER MODAL
 
 </div>
 
+
+<button type="button" class="cod-sticky-btn" onclick="openCodModal()">🔥 ऑर्डर करें – ₹1470</button>
 </body>
 
 </html>
