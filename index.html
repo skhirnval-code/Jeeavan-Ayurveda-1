@@ -1092,6 +1092,179 @@ min-height: 300px;
 
 }
 
+
+/* =========================
+COD ORDER MODAL
+========================= */
+
+.cod-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(16,43,25,0.6);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 2000;
+padding: 20px;
+}
+
+.cod-modal {
+background: white;
+border-radius: 20px;
+max-width: 480px;
+width: 100%;
+max-height: 90vh;
+overflow-y: auto;
+}
+
+.cod-modal-header {
+background: #102b19;
+color: white;
+padding: 25px 30px;
+border-radius: 20px 20px 0 0;
+position: relative;
+}
+
+.cod-modal-header h3 {
+font-size: 22px;
+margin-bottom: 5px;
+}
+
+.cod-modal-header p {
+color: #c6d3c8;
+font-size: 13px;
+}
+
+.cod-close {
+position: absolute;
+top: 20px;
+right: 20px;
+width: 34px;
+height: 34px;
+border-radius: 50%;
+border: none;
+background: rgba(255,255,255,0.15);
+color: white;
+font-size: 18px;
+cursor: pointer;
+}
+
+.cod-modal-body {
+padding: 25px 30px 30px;
+}
+
+.cod-plans {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 12px;
+margin-bottom: 25px;
+}
+
+.cod-plan {
+position: relative;
+border: 2px solid #e2e8e3;
+border-radius: 14px;
+padding: 15px 8px;
+text-align: center;
+cursor: pointer;
+transition: 0.2s;
+}
+
+.cod-plan:hover {
+border-color: #28753d;
+}
+
+.cod-plan.selected {
+border-color: #28753d;
+box-shadow: 0 8px 20px rgba(40,117,61,0.15);
+}
+
+.cod-badge {
+position: absolute;
+top: -12px;
+left: 50%;
+transform: translateX(-50%);
+background: #f2790f;
+color: white;
+font-size: 11px;
+font-weight: bold;
+padding: 3px 10px;
+border-radius: 20px;
+white-space: nowrap;
+}
+
+.cod-plan-name {
+font-weight: bold;
+font-size: 16px;
+margin-top: 8px;
+}
+
+.cod-plan-duration {
+font-size: 12px;
+color: #777;
+margin-bottom: 8px;
+}
+
+.cod-old-price {
+font-size: 13px;
+color: #999;
+text-decoration: line-through;
+}
+
+.cod-price {
+font-size: 19px;
+font-weight: bold;
+color: #216636;
+}
+
+.cod-save {
+font-size: 11px;
+color: #f2790f;
+font-weight: bold;
+}
+
+.cod-total-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #eaf5e7;
+padding: 15px 18px;
+border-radius: 12px;
+font-weight: bold;
+margin-bottom: 18px;
+}
+
+.cod-total-row #codTotalAmount {
+color: #216636;
+font-size: 18px;
+}
+
+.cod-confirm-btn {
+width: 100%;
+background: #f2790f;
+color: white;
+padding: 16px;
+border: none;
+border-radius: 10px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.cod-confirm-btn:hover {
+background: #d9680a;
+}
+
+.cod-trigger-btn {
+background: #f2790f !important;
+}
+
+.cod-trigger-btn:hover {
+background: #d9680a !important;
+}
 </style>
 
 </head>
@@ -1434,12 +1607,13 @@ Customer guidance
 
 </div>
 
-<a
-href="#contact"
-class="btn primary"
+<button
+type="button"
+class="btn primary cod-trigger-btn"
+onclick="openCodModal()"
 >
-Product की जानकारी लें
-</a>
+🔥 COD ऑर्डर करें – ₹1470
+</button>
 
 </div>
 
@@ -2446,7 +2620,198 @@ console.error(error);
 }
 );
 
+
+
+// =========================
+// COD ORDER MODAL
+// =========================
+
+let codSelectedPlan = { name: "3 महीने (पूरा कोर्स)", price: 3900 };
+
+function openCodModal() {
+document.getElementById("codOverlay").style.display = "flex";
+document.body.style.overflow = "hidden";
+}
+
+function closeCodModal() {
+document.getElementById("codOverlay").style.display = "none";
+document.body.style.overflow = "";
+}
+
+function selectCodPlan(planKey) {
+document.querySelectorAll(".cod-plan").forEach(function(p) {
+p.classList.remove("selected");
+});
+const el = document.querySelector('.cod-plan[data-plan="' + planKey + '"]');
+el.classList.add("selected");
+const price = el.getAttribute("data-price");
+const name = el.querySelector(".cod-plan-name").innerText + " (" + el.querySelector(".cod-plan-duration").innerText + ")";
+codSelectedPlan = { name: name, price: price };
+document.getElementById("codTotalAmount").innerText = "₹" + price;
+}
+
+function submitCodOrder() {
+const name = document.getElementById("codName").value.trim();
+const phone = document.getElementById("codPhone").value.trim();
+const pincode = document.getElementById("codPincode").value.trim();
+const address = document.getElementById("codAddress").value.trim();
+
+if (!name) {
+alert("कृपया अपना नाम लिखें।");
+return;
+}
+
+if (!/^[0-9]{10}$/.test(phone)) {
+alert("कृपया सही 10 अंक mobile number डालें।");
+return;
+}
+
+if (!/^[0-9]{6}$/.test(pincode)) {
+alert("कृपया सही 6 अंक pincode डालें।");
+return;
+}
+
+if (!address) {
+alert("कृपया पूरा पता लिखें।");
+return;
+}
+
+const message =
+"नमस्ते, मुझे यह ऑर्डर करना है:\n" +
+"प्लान: " + codSelectedPlan.name + "\n" +
+"राशि (COD): ₹" + codSelectedPlan.price + "\n" +
+"नाम: " + name + "\n" +
+"मोबाइल: " + phone + "\n" +
+"पिनकोड: " + pincode + "\n" +
+"पता: " + address;
+
+window.open("https://wa.me/919571885238?text=" + encodeURIComponent(message), "_blank");
+
+closeCodModal();
+}
 </script>
+
+<!-- =========================
+COD ORDER MODAL
+========================= -->
+
+<div class="cod-overlay" id="codOverlay">
+
+<div class="cod-modal">
+
+<div class="cod-modal-header">
+
+<button type="button" class="cod-close" onclick="closeCodModal()">×</button>
+
+<h3>COD ऑर्डर फ़ॉर्म</h3>
+
+<p>पैसा डिलीवरी पर · कोई एडवांस नहीं</p>
+
+</div>
+
+<div class="cod-modal-body">
+
+<div class="cod-plans">
+
+<div class="cod-plan" data-plan="1set" data-price="1470" onclick="selectCodPlan('1set')">
+
+<div class="cod-plan-name">1 सेट</div>
+
+<div class="cod-plan-duration">1 महीना</div>
+
+<div class="cod-old-price">₹2100</div>
+
+<div class="cod-price">₹1470</div>
+
+<div class="cod-save">बचत ₹630</div>
+
+</div>
+
+<div class="cod-plan" data-plan="2set" data-price="2700" onclick="selectCodPlan('2set')">
+
+<div class="cod-badge">बचत ₹1500</div>
+
+<div class="cod-plan-name">2 सेट</div>
+
+<div class="cod-plan-duration">2 महीने</div>
+
+<div class="cod-old-price">₹4200</div>
+
+<div class="cod-price">₹2700</div>
+
+<div class="cod-save">बचत ₹1500</div>
+
+</div>
+
+<div class="cod-plan selected" data-plan="3month" data-price="3900" onclick="selectCodPlan('3month')">
+
+<div class="cod-badge">सबसे बेहतर</div>
+
+<div class="cod-plan-name">3 महीने</div>
+
+<div class="cod-plan-duration">पूरा कोर्स</div>
+
+<div class="cod-old-price">₹6300</div>
+
+<div class="cod-price">₹3900</div>
+
+<div class="cod-save">बचत ₹2400</div>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>आपका नाम *</label>
+
+<input type="text" id="codName" placeholder="पूरा नाम">
+
+</div>
+
+<div style="display:flex; gap:15px;">
+
+<div class="form-group" style="flex:1;">
+
+<label>मोबाइल नंबर *</label>
+
+<input type="tel" id="codPhone" placeholder="10 अंक" maxlength="10">
+
+</div>
+
+<div class="form-group" style="flex:1;">
+
+<label>पिनकोड *</label>
+
+<input type="text" id="codPincode" placeholder="6 अंक" maxlength="6">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>पूरा पता *</label>
+
+<textarea id="codAddress" placeholder="मकान नं., गली, गाँव/शहर, ज़िला, राज्य"></textarea>
+
+</div>
+
+<div class="cod-total-row">
+
+<span>कुल राशि (COD)</span>
+
+<span id="codTotalAmount">₹3900</span>
+
+</div>
+
+<button type="button" class="cod-confirm-btn" onclick="submitCodOrder()">✅ ऑर्डर कन्फर्म करें</button>
+
+</div>
+
+</div>
+
+</div>
 
 </body>
 
