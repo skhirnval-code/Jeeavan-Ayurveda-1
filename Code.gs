@@ -41,6 +41,10 @@ function submitForm(data) {
         "Mobile",
         "Requirement",
         "City",
+        "Address",
+        "District",
+        "State",
+        "Pincode",
         "Message"
       ]);
 
@@ -59,6 +63,14 @@ function submitForm(data) {
       data.requirement || "",
 
       data.city || "",
+
+      data.address || "",
+
+      data.district || "",
+
+      data.state || "",
+
+      data.pincode || "",
 
       data.message || ""
 
