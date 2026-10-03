@@ -2390,9 +2390,18 @@ document.getElementById("codOverlay").style.display = "flex";
 document.body.style.overflow = "hidden";
 }
 
+let codFormHtml = null;
+
 function closeCodModal() {
 document.getElementById("codOverlay").style.display = "none";
 document.body.style.overflow = "";
+if (codFormHtml) {
+document.querySelector(".cod-modal-body").innerHTML = codFormHtml;
+codFormHtml = null;
+const b = document.querySelector(".cod-confirm-btn");
+b.disabled = false;
+b.innerText = "✅ ऑर्डर कन्फर्म करें";
+}
 }
 
 function selectCodPlan(planKey) {
@@ -2433,18 +2442,47 @@ alert("कृपया पूरा पता लिखें।");
 return;
 }
 
-const message =
-"नमस्ते, मुझे यह ऑर्डर करना है:\n" +
-"प्लान: " + codSelectedPlan.name + "\n" +
-"राशि (COD): ₹" + codSelectedPlan.price + "\n" +
-"नाम: " + name + "\n" +
-"मोबाइल: " + phone + "\n" +
-"पिनकोड: " + pincode + "\n" +
-"पता: " + address;
+const btn = document.querySelector(".cod-confirm-btn");
+btn.disabled = true;
+btn.innerText = "⏳ ऑर्डर भेजा जा रहा है...";
 
-window.open("https://wa.me/919571885238?text=" + encodeURIComponent(message), "_blank");
+const selPlan = document.querySelector(".cod-plan.selected");
+const planKey = selPlan ? selPlan.getAttribute("data-plan") : "3month";
 
-closeCodModal();
+fetch("https://crm.jeevanayurveda.in/api/website-order", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({
+plan: planKey,
+name: name,
+phone: phone,
+pincode: pincode,
+address: address,
+website: (document.getElementById("codWebsite") || {}).value || ""
+})
+})
+.then(function(r) { return r.json().then(function(d) { return { ok: r.ok, d: d }; }); })
+.then(function(res) {
+if (!res.ok) throw new Error(res.d.error || "error");
+if (window.fbq) fbq("track", "Purchase", { value: Number(codSelectedPlan.price), currency: "INR" });
+codFormHtml = document.querySelector(".cod-modal-body").innerHTML;
+document.querySelector(".cod-modal-body").innerHTML =
+'<div style="text-align:center;padding:30px 10px;">' +
+'<div style="font-size:54px;">✅</div>' +
+'<h3 style="color:#216636;margin:10px 0;">आपका ऑर्डर मिल गया!</h3>' +
+'<p>ऑर्डर नंबर: <b>' + (res.d.orderNo || "") + '</b></p>' +
+'<p style="margin-top:8px;">हमारी टीम जल्द ही <b>' + phone + '</b> पर कॉल करके ऑर्डर कन्फर्म करेगी।</p>' +
+'<p style="margin-top:8px;">राशि (COD): <b>₹' + codSelectedPlan.price + '</b> — डिलीवरी पर भुगतान</p>' +
+'<button type="button" class="cod-confirm-btn" style="margin-top:20px;" onclick="closeCodModal()">ठीक है</button>' +
+'</div>';
+})
+.catch(function(err) {
+btn.disabled = false;
+btn.innerText = "✅ ऑर्डर कन्फर्म करें";
+alert(err && err.message && err.message !== "Failed to fetch" && err.message !== "error"
+? err.message
+: "ऑर्डर नहीं भेजा जा सका, कृपया दोबारा कोशिश करें या +91 95718 85238 पर कॉल करें।");
+});
 }
 
 
@@ -2560,6 +2598,8 @@ COD ORDER MODAL
 <textarea id="codAddress" placeholder="मकान नं., गली, गाँव/शहर, ज़िला, राज्य"></textarea>
 
 </div>
+
+<input type="text" id="codWebsite" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
 
 <div class="cod-total-row">
 
