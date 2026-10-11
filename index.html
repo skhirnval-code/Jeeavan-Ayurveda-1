@@ -1334,6 +1334,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1413099843773880');
+fbq('init', '1791359191893979');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -2465,6 +2466,7 @@ website: (document.getElementById("codWebsite") || {}).value || ""
 .then(function(res) {
 if (!res.ok) throw new Error(res.d.error || "error");
 if (window.fbq) fbq("track", "Purchase", { value: Number(codSelectedPlan.price), currency: "INR" });
+if (window.fbq) fbq("track", "Lead", { value: Number(codSelectedPlan.price), currency: "INR" });
 codFormHtml = document.querySelector(".cod-modal-body").innerHTML;
 document.querySelector(".cod-modal-body").innerHTML =
 '<div style="text-align:center;padding:30px 10px;">' +
